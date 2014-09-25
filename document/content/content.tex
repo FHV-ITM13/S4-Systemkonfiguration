@@ -1,125 +1,80 @@
-\chapter{Tutorial}
+\chapter{Einführung}
 
-\section{Images}
+\section{Was ist Software?}
+Artifakte im Kontext einer Domäne (eine Beschreibung davon was wir machen) und im Kontext einer Technologie (eine Beschreibung davon wie wir etwas erreichen). Seit 1950 versucht man die Technologie zu abstrahieren um sich auf die jeweilige Domäne konzentrieren zu können (OPCodes, Speichermanagement, ...). Jede zusätzliche Abstraktionsschicht hat allerdings auch neue Probleme mit sich gebracht z.B. schlechtere Performanz, größerer Speicherbedarf, etc. 
 
-In der Abbildung \imgref{gull} können Sie eine Möwe sehen.
+Mit der Zeit wurden diese Probleme beseitigt und auch die Hardware hat sich dementsprechened weiterentwickelt (Speichergröße, CPU-Leistung, ...). 
 
-\img{0.5}{document/graphics/gull.jpg}{Quelle: http://de.wikipedia.org/wiki/Möwen}{gull}
+\section{Beobachtungen von Modellen}
+\begin{itemize}
+\item auch Quellcode ist ein Model
+\item Graphische Modelle
+\begin{itemize}
+\item Kontrollflussmodelle
+\item Bachmanndiagramme
+\item UML
+\item ...
+\end{itemize}
+\end{itemize}
 
-In der Abbildung \imgref{biene} können Sie eine Biene sehen:
+Modelle werde verwendet um Anforderungen zu Beschreiben, eine Situation zu erfassen oder inzwischen auch um Quellcode daraus zu genieren.
 
-\imgsrc{0.3}{document/graphics/biene.png}{Ich bin eine Bieene.}{biene}{frag google!}
+\section{Probleme von Modellen}
+Oft erkennt man nicht den Nutzen eines Modells (oder auch den Grad der Vollständigkeit). Außerdem können Modelle nicht nur richtig oder falsch sein sondern auch irrelevant.
 
-\begin{code}[tex]{Inline code}{Inline code}
-You can see a Gull in Abbildung \imgref{gull1}.
+\section{Wärs nicht schön wenn ...?}
+... es eine Umgebung gibt in welcher man 
+\begin{itemize}
+\item aus einem Modell eine vollständige Software generieren könnte
+\item ein Model ausführen kann ohne dafür Code generiern zu müssen
+\item Plattformunabhängig ist und somit wiederverwendbar
+\end{itemize}
 
-\img{0.5}{document/graphics/gull.jpg}{Quelle: http://de.wikipedia.org/wiki/Moewen}{gull1}
+\section{Sinnhaftigkeit}
+\begin{itemize}
+\item die Möglichkeit Modelle in Code umwandeln gibt es breits
+\item Transformation von abstrakten Code zu einem konkreten Model wird breits von Kompilern gemacht
+\item Parametrisierung von Modelltransformationen wird von STP und den meisten Kompilern unterstützt
+\end{itemize}
 
-And a bee in Abbildung \imgref{biene1}:
+\section{Modellkontext}
+Klassifizierung von Artifakten anhand von Domänen
+\begin{itemize}
+\item IT Domäne
+\item Applikationsdomäne (Bank, Regierung, Kommerzielles)
+\end{itemize}
 
-\imgsrc{0.3}{document/graphics/biene.png}{Ich bin eine Bieene.}{biene1}{frag google!}
-\end{code}
+\section{Model Scope}
+\begin{itemize}
+\item Strukturelles Modelle (Klassenmodell, Komponentemodell, ...)
+\item Verhaltens Modelle (Usecases)
+\item Installations Modelle
+\end{itemize}
 
-\section{Listings}
+\section{Modelzweck}
+\begin{itemize}
+\item Illustrationsmodell (Verständlichkeit)
+\item Anforderungmodell (Anforderungen an einen Zustand)
+\item Analysemodell (Repräsentation eines Zustands)
+\item Designmodell (Zustand den man haben möchte) 
+\end{itemize}
 
-In Listing \coderef{example} können Sie ein Beispiel Code sehen.
+\section{Modelvollständigkeit}
+Klassifizierung anhand des Grades an Vollständigkeit
+\begin{itemize}
+\item Unspezifisch
+\item Funktion-Vollständigkeit (z.B. alle Operationen in einem UML-Modell aber nicht zwangsläufig eine Implementierung)
+\item Resourcen-Vollständigkeit (Vollständig im Sinne von Ressourcen die funktionale Anforderungen implementiert haben)
+\end{itemize}
 
-\codefile[6][12][perl]{document/scripts/example.pl}{example caption}{example}
+\section{Modelltypen}
+\img{0.75}{document/graphics/modelltypen.png}{Folien Bernd Wenzel}{modelltypen}
 
-\begin{code}[tex]{Include a code file}{codefile}
-In Listing \coderef{examplelabel} you can see a perl code sample (line 6 to 12).
-\codefile[6][12][perl]{document/scripts/example.pl}{example caption}{example}
-\end{code}
+\section{Metamodell-Architektur}
+\begin{itemize}
+\item Model - Formale Definition von Struktur, Verhalten und Einschränkungen für eine Gruppe von Objekten (in einem Moodell) gelten. 
+\item Metamodell - Formale Definition von Struktur, Verhalten und Einschränkungen für eine Gruppe von Modellelementen.
+\item Metalevel - M0 (Daten), M1 (Modelle - Datenbanken), M2 (Metamodelle - Programmiersprache, UML), M3 (Metametamodelle - Selbstbeschreibend)
+\end{itemize}
 
-\begin{code}[c]{caption}{label}
-#include <msp430.h> 
-
-void main(void) {
-	WDTCTL = WDTPW + WDTHOLD; // Stop watchdog timer
-
-	P1DIR |= BIT0; // Set P1.0 to output direction
-	P1OUT &= ~BIT0; // Set the red LED on
-
-	TA0CCR0 = 12000; // Count limit (16 bit)
-	TA0CCTL0 = 0x10;	 // Enable counter interrupts, bit 4=1
-	TA0CTL = TASSEL_1 + MC_1; // Timer A 0 with ACLK @ 12KHz, count UP
-
-	_BIS_SR(LPM0_bits + GIE); // LPM0 (low power mode) with interrupts enabled
-}
-
-#pragma vector=TIMER0_A0_VECTOR
-   __interrupt void Timer0_A0 (void) { // Timer0 A0 interrupt service routine
-	P1OUT ^= BIT0; // Toggle red LED
-}
-\end{code}
-
-
-\begin{code}[tex]{Inline code}{Inline code}
-In Listing \coderef{inline} you can see a c code sample.
-
-\begin{code}[c]{example caption}{inline}
-#include <msp430.h> 
-
-void main(void) {
-...
-}
-\ end{code}
-\end{code}
-
-\section{Bibtex}
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \cite{bibtex.a}
-
-Der Literaturgenerator macht es möglich, schnell und einfach BibTeX-Einträge zu erstellen.
-Es reicht den Titel des Buches in das Suchfeld einzutragen.\\
-\url{http://www.literatur-generator.de/}
-
-Die meisten Bibliothekskataloge können mittlerweile BibTeX exportieren (ggf. nach \url{http://de.wikipedia.org/wiki/Citavi}). Hiermit können komplette Datensätze in die BibTeX-Datenbank übernommen werden.\\
-Mit dem Webtool Lead2Amazon ist es möglich, BibTeX-Einträge für Bücher, die bei Amazon erhältlich sind, automatisch zu generieren.\\
-In das Suchfeld muss dabei lediglich die ISBN eingetragen werden.\\
-\url{http://lead.to/amazon/en/?op=bt}
-
-Mit dem Literaturverwaltungsprogramm zotero lassen sich auch bibtex-Dateien exportieren.\\
-\url{http://www.zotero.org}
-
-\section{Algorithm}
-
-This Algoorithm \algoref{algo1} is great to learn.
-
-\begin{algo}{How to write algorithms}{algo1}
- \KwData{this text}
- \KwResult{how to write algorithm with \LaTeX2e }
- initialization\;
- \While{not at end of this document}{
-  read current\;
-  \eIf{understand}{
-   go to next section\;
-   current section becomes this one\;
-   }{
-   go back to the beginning of current section\;
-  }
- }
-\end{algo}
-
-\begin{code}[Tex]{Algorithm code}{algorithm}
-This Algoorithm \algoref{algo1} is great to learn.
-
-\begin{algo}{How to write algorithms}{algo1}
- \KwData{this text}
- \KwResult{how to write algorithm with \LaTeX2e }
- initialization\;
- \While{not at end of this document}{
-  read current\;
-  \eIf{understand}{
-   go to next section\;
-   current section becomes this one\;
-   }{
-   go back to the beginning of current section\;
-  }
- }
-\end{algo}
-\end{code}
-
-\Blinddocument
-
-\Blinddocument
+\img{1}{document/graphics/metamodell.png}{Folien Bernd Wenzel}{metamodell}
