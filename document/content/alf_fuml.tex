@@ -1,0 +1,88 @@
+\chapter{Einführung in ALF und fUML}
+
+\textbf{Motivation}
+\begin{itemize}
+\item E-Commerce Ordering System
+\item Designed in UML
+\item Implementiert im Web (Programmiersprachen unabhängig
+\end{itemize}
+
+\section{UML-Model: Ordering}
+
+\img{0.75}{document/graphics/ordering-model.png}{Bestellung Klassen-Diagramm}{orderingmodel}
+
+In Abbildung \imgref{orderingmodel} wird ein UML-Diagramm verwaltung von Bestellungen dargestellt. Die Klasse Order ist Verantwortlich für die Sortierung.
+
+\textbf{Anmerkung zu UML:}
+Der Punkt beim Pfeil: Das OrderLineItem kann direkt auf das Produkt zugreifen aber umgekehrt nicht. Im OrderLineItem ist ein Property product aber im Product ist keine Liste von OrderLineItem. Nur ein Pfeil ist was ähnliches aber nicht so strikt.
+
+\section{State-Diagramm: Ordering}
+
+\img{0.75}{document/graphics/ordering-state.png}{Bestellung State-Diagramm}{orderingstate}
+
+In Abbildung \imgref{orderingstate} ist das Zustandsdiagramm einer Bestellung dargestellt. Die Schleife bei 2 und 3 besagt, dass der User aufgefordert wird die Zahlungsmöglichkeit auszuwählen. Fals das ncht klappt wird noch einmal gefragt. Es fehlt hier eine Abbruchbedinung.
+
+\section{Executable UML Foundation (fUML)}
+
+Foundational UML (fUML) is an executable subset of standard UML that can be used to define, in an operational style, the structural and behavioral semantics of systems.
+
+\textbf{Ziele:}
+\begin{itemize}
+\item UML ist nicht genugt spezifiziert um ausführbar zu sein
+\item fUML präzisiert ein ausführbares subset von UML
+\item Graphiches Modellierung ist nicht genug programmierung
+\item ALF spezifiziert eine Action Language für UML
+\end{itemize}
+
+\subsection{Key Komponenten}
+
+Foundational UML Subset (fUML) – A computationally complete subset of the abstract syntax of UML (Version 2.3)
+\begin{itemize}
+\item Kernel–Basicobject-orientedcapabilities
+\item Common Behavior – General behavior and asynchronous communication
+\item Activities – Activity modeling, including structured activities (but not including variables, exceptions, swimlanes, streaming or other “higher level” activity modeling)
+\end{itemize}
+
+Execution Model – A model of the execution semantics of user models within the fUML subset
+
+Foundational Model Library
+\begin{itemize}
+\item Primitive Types – Boolean, String, Integer, Unlimited Natural\item Primitive Behaviors – Boolean, String and Arithmetic Functions\item Basic Input/Output – Based on the concept of “Channels”
+\end{itemize}
+\section{UML Action Language (Alf)}
+
+The Action Language for Foundational UML (Alf) is a textual surface representation for UML modeling elements with the primary purpose of acting as the surface notation for specifying executable (fUML) behaviors within an overall graphical UML model. (But which also provides an extended notation for structural modeling within the fUML subset.)
+
+\subsection{Key Komponenten}
+
+\paragraph{Concrete Syntax} – A BNF specification of the legal textual syntax of the Alf language.
+\paragraph{Abstract Syntax} – A MOF metamodel of the abstract syntax tree that is synthesized during parsing of an Alf text, with additional derived attributes and constraints that specify the static semantic analysis of that text.
+\paragraph{Semantics} – The semantics of Alf are defined by mapping the Alf abstract syntax metamodel to the fUML abstract syntax metamodel.
+
+\paragraph{Standard Model Library}
+\begin{itemize}
+\item From the fUML Foundational Model Library
+\end{itemize}
+\paragraph{Primitive Types} (plus Natural and Bit String)
+\paragraph{Primitive Behaviors} (plus Bit String Functions and Sequence Functions)
+\paragraph{Basic Input/Output}
+\begin{itemize}
+\item Collection Functions – Similar to OCL collection operations for sequences
+\item Collection Classes – Set, Ordered Set, Bag (Stack), List, Queue, Deque, Map
+\end{itemize}
+
+\subsection{Elements of Executable UML}
+
+\img{0.75}{document/graphics/example-exec-uml.png}{Beispiel Ausführbares UML}{execuml}
+
+Abbildung \imgref{execuml} zeigt ein Beispiel für ein Ausführbares UML.
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+\chapter{Einführung}
+
+\section{Was ist Software?}
+Artifakte im Kontext einer Domäne (eine Beschreibung davon was wir machen) und im Kontext einer Technologie (eine Beschreibung davon wie wir etwas erreichen). Seit 1950 versucht man die Technologie zu abstrahieren um sich auf die jeweilige Domäne konzentrieren zu können (OPCodes, Speichermanagement, ...). Jede zusätzliche Abstraktionsschicht hat allerdings auch neue Probleme mit sich gebracht z.B. schlechtere Performanz, größerer Speicherbedarf, etc. 
+
+Mit der Zeit wurden diese Probleme beseitigt und auch die Hardware hat sich dementsprechened weiterentwickelt (Speichergröße, CPU-Leistung, ...). 
+
+\section{Beobachtungen von Modellen}
+\begin{itemize}
+\item auch Quellcode ist ein Model
+\item Graphische Modelle
+\begin{itemize}
+\item Kontrollflussmodelle
+\item Bachmanndiagramme
+\item UML
+\item ...
+\end{itemize}
+\end{itemize}
+
+Modelle werde verwendet um Anforderungen zu Beschreiben, eine Situation zu erfassen oder inzwischen auch um Quellcode daraus zu genieren.
+
+\section{Probleme von Modellen}
+Oft erkennt man nicht den Nutzen eines Modells (oder auch den Grad der Vollständigkeit). Außerdem können Modelle nicht nur richtig oder falsch sein sondern auch irrelevant.
+
+\section{Wärs nicht schön wenn ...?}
+... es eine Umgebung gibt in welcher man 
+\begin{itemize}
+\item aus einem Modell eine vollständige Software generieren könnte
+\item ein Model ausführen kann ohne dafür Code generiern zu müssen
+\item Plattformunabhängig ist und somit wiederverwendbar
+\end{itemize}
+
+\section{Sinnhaftigkeit}
+\begin{itemize}
+\item die Möglichkeit Modelle in Code umwandeln gibt es breits
+\item Transformation von abstrakten Code zu einem konkreten Model wird breits von Kompilern gemacht
+\item Parametrisierung von Modelltransformationen wird von STP und den meisten Kompilern unterstützt
+\end{itemize}
+
+\section{Modellkontext}
+Klassifizierung von Artifakten anhand von Domänen
+\begin{itemize}
+\item IT Domäne
+\item Applikationsdomäne (Bank, Regierung, Kommerzielles)
+\end{itemize}
+
+\section{Model Scope}
+\begin{itemize}
+\item Strukturelles Modelle (Klassenmodell, Komponentemodell, ...)
+\item Verhaltens Modelle (Usecases)
+\item Installations Modelle
+\end{itemize}
+
+\section{Modelzweck}
+\begin{itemize}
+\item Illustrationsmodell (Verständlichkeit)
+\item Anforderungmodell (Anforderungen an einen Zustand)
+\item Analysemodell (Repräsentation eines Zustands)
+\item Designmodell (Zustand den man haben möchte) 
+\end{itemize}
+
+\section{Modelvollständigkeit}
+Klassifizierung anhand des Grades an Vollständigkeit
+\begin{itemize}
+\item Unspezifisch
+\item Funktion-Vollständigkeit (z.B. alle Operationen in einem UML-Modell aber nicht zwangsläufig eine Implementierung)
+\item Resourcen-Vollständigkeit (Vollständig im Sinne von Ressourcen die funktionale Anforderungen implementiert haben)
+\end{itemize}
+
+\section{Modelltypen}
+\img{0.75}{document/graphics/modelltypen.png}{Folien Bernd Wenzel}{modelltypen}
+
+\section{Metamodell-Architektur}
+\begin{itemize}
+\item Model - Formale Definition von Struktur, Verhalten und Einschränkungen für eine Gruppe von Objekten (in einem Moodell) gelten. 
+\item Metamodell - Formale Definition von Struktur, Verhalten und Einschränkungen für eine Gruppe von Modellelementen.
+\item Metalevel - M0 (Daten), M1 (Modelle - Datenbanken), M2 (Metamodelle - Programmiersprache, UML), M3 (Metametamodelle - Selbstbeschreibend)
+\end{itemize}
+
+\img{1}{document/graphics/metamodell.png}{Folien Bernd Wenzel}{metamodell}
