@@ -77,12 +77,52 @@ The Action Language for Foundational UML (Alf) is a textual surface representati
 
 Abbildung \imgref{execuml} zeigt ein Beispiel für ein Ausführbares UML.
 
+\section{Actions}
 
+\subsection{Invocation Actions}
+Beinhaltet Aufrufen von Operationen, Verhalten in gewissen Situationen, das Senden von Signalen, und akzeptieren von Events.
 
+\subsection{Object Actions}
+Unter diesem Punkt werden Aktionen auf Objekte zusammengefasst. Dazu gehören Spezifikationen, das Erzeugen und zestören von Objekten. Mit instanceof können Typen von Variablen überprüft werden, wobei auch die Vererbungshierarchie berücksichtigt wird (im Gegensatz zu C++, wo deshalb so viel mit Pointern gearbeitet wird).
 
+Mit reclassify kann man auch dynamisch den Typ von Objekten ändern. Damit kann man z.B. auch Zustände mit Klassen abbilden, und das als Typ des Objekts verwenden.
 
+\subsection{Structural Feature Actions}
+Bei dieser Gruppe geht es um das Setzen und Lesen von Features bzw. Eigenschaften der einzelnen Elemente. Dabei werden auch Listenfunktionen beachtet.
 
+\subsection{Link Actions}
+Beinhaltet Lesen, Erzeugen, Zerstören und das Zurücksetzen von Assoziationen.
+\subsection{Computation}
+Dazu gehört das Indizieren (wichtig: startet mit 1), Vergleichen, Ausführen von arithmethischen Operationen, Inkrementierung und Dekrementierung.
 
+\section{Structures}
 
+\subsection{Classes and attributes}
+classes-attributes.png
 
+\subsection{Datatypes}
+In UML dürfen Datentypen nur Attribute haben, aber keine Operationen, was einem Grundsatz der Objektorientierung widerspricht.
 
+Verfügbare Datentypen in UML sind Boolean, Integer, UnlimitedNatural und String, mit fUML kommt auch noch der Datentyp Real dazu.
+
+\subsection{Operations and Methods}
+methods.png
+
+\subsection{Structural Semantics}
+Mit diesen Diagrammen kann man Objektstrukturen darstellen, und kann visualisieren wie die definierten Klassendiagramme umgesetzt werden.
+
+\subsection {Behavioral Semantics}
+Zeigt wie sich der Aufruf einer Funktoin auf die Objektstruktur auswirkt. Folgende Abbildung zeigt ein Beispiel. In diesen Diagrammen werden auch die Auswirkungen der Modellierung dargestellt.
+
+cancel-order.png
+
+\section{Asynchronous Communication}
+
+\subsection{Signals and Receptions}
+Signale können auch Attribute und somit komplexe Strukturen haben. Eine Reception auf einem anderen Objekt definiert, dass dieses Objekt dieses Signal empfangen und verarbeiten kann.
+
+\section{Primitive Behaviours}
+Es werden auch primitive Behaviour von Datentypen mit ausgeliefert, wie Vergleiche, Umwandlungen und arithmetische Operationen bei numerischen Datentypen, oder Konkatenierung oder das zurückliefern von Teilstrings bei String.
+
+\section{Collections}
+Dabei handelt es sich um eine Ansammlung von mehreren Objekten oder Ausprägungen primitiver Datentypen. Kennt man auch aus anderen Programmiersprachen, etwas verwirrend ist nur der Begriff Deque, der im Prinzip einem Stack entspricht.
